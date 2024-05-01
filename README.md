@@ -16,10 +16,11 @@
 3. 创建所需要的constants(in utils)
 
 ### Two day
-1. 安装与导航相关的package: npm install --save react-native-navigation
+1. 安装与导航相关的package: npm install --save react-native-navigation  ×
 
 ### Three day
-1. 
+1. 卸载 react-native-navigation， 安装expo-router
+
 
 ### 参考文档
 1. https://reactnative.cn/docs/getting-started React-native库
@@ -28,3 +29,5 @@
 4. https://reactnavigation.org/docs/getting-started/ react-native 官方推荐的导航库
 5. https://wix.github.io/react-native-navigation/docs/before-you-start  官方推荐的导航库2
 6. https://github.com/jquense/yup?tab=readme-ov-file 表单数据校验
+7. https://docs.expo.dev/router/installation/#quick-start  expo-router文档
+
