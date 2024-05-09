@@ -27,6 +27,9 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "scheme": "expo-router-supabase"
+    "scheme": "expo-router-supabase",
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

@@ -1,0 +1,19 @@
+import { StyleSheet, View } from 'react-native'
+import { useState } from 'react'
+import { Stack } from 'expo-router';
+
+const Login = () => {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  return (
+    <View>
+      <Stack.Screen name="login" options={{ headerShown: true, title: 'login.js' }}></Stack.Screen>
+      用户名：<TextInput value={username} onChangeText={(username)=>{setUsername(username)}}></TextInput><br />
+      密码: <TextInput value={password} onChangeText={(password) => { setPassword(password) }}></TextInput>
+    </View>
+  ) 
+}
+
+export default Login
+
+const styles = StyleSheet.create({})

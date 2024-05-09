@@ -1,3 +1,10 @@
+export const FEED = 'feed';
+export const CATEGORY = 'category';
+export const CART = 'cart';
+export const PROFILE = 'profile';
+export const tabs = [
+  FEED, CATEGORY, CART,  PROFILE,
+]
 export const sortList = [
   {
     name: '最新的',
