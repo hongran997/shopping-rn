@@ -6,6 +6,7 @@ const Cart = () => {
     <View>
       <Text>Cart</Text>
       <Link href="/notFound" >Go to NotFound</Link>
+      <Link href="(auth)/modal">Go to modal</Link>
     </View>
   )
 }

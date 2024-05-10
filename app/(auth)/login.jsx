@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TextInput } from 'react-native'
 import { useState } from 'react'
 import { Stack } from 'expo-router';
 
@@ -8,8 +8,8 @@ const Login = () => {
   return (
     <View>
       <Stack.Screen name="login" options={{ headerShown: true, title: 'login.js' }}></Stack.Screen>
-      用户名：<TextInput value={username} onChangeText={(username)=>{setUsername(username)}}></TextInput><br />
-      密码: <TextInput value={password} onChangeText={(password) => { setPassword(password) }}></TextInput>
+      <View>用户名：</View><TextInput value={username} onChangeText={(username)=>{setUsername(username)}}></TextInput><br />
+      <View>密码:</View> <TextInput value={password} onChangeText={(password) => { setPassword(password) }}></TextInput>
     </View>
   ) 
 }

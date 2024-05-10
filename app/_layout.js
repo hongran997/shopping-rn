@@ -1,4 +1,5 @@
 import { Provider } from 'react-redux';
+import { View, Text } from 'react-native';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, DarkTheme, DefaultTheme, useTheme } from '@react-navigation/native';
@@ -9,6 +10,7 @@ import store from '../store/index';
 const persistor = persistStore(store);
 console.log(DefaultTheme);
 
+
 export default function AppLayout() {
   return (
     <Provider store={store}>
@@ -16,7 +18,8 @@ export default function AppLayout() {
         <ThemeProvider value={DefaultTheme}>
           <SafeAreaProvider>
             <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'app.js' }} />
+              <Stack.Screen name="(main)/(tabs)" options={{ headerShown: false, title: 'app.js' }} />
+              <Stack.Screen name="(auth)" options={{ headerShown: false, title: 'app.js' }} />
             </Stack>
           </SafeAreaProvider>
         </ThemeProvider>

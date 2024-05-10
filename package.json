@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint --fix --quiet ./app"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.1",
@@ -28,7 +29,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@types/react": "~18.2.45",
+    "eslint": "^9.2.0",
+    "eslint-config-universe": "^12.1.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
     "typescript": "~5.3.3",
     "yup": "^1.4.0"
   },

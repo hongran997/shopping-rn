@@ -41,12 +41,11 @@
 2. 引入 store，完善app/_layout.js文件
 
 ### Six day
-1. upgrade expo and releated dependencies.  From upgrage Expo Go in My Iphone  --fix 很迅速
+1. upgrade expo and releated dependencies.  From upgrage Expo Go in My Iphone  --fix 很迅速,在bash 下执行
 2. 好像一旦进入过tabs 页面，就不会刚进页面就会Not Found Page.
 
 ### Seven day
-1. 开发Feed页面
-2. 
+1. 前端工程化配置
 
 
 ### 参考项目
@@ -71,4 +70,3 @@
 
 ### 参考博客
 1. https://blog.csdn.net/weixin_30230009/article/details/136084273
-
