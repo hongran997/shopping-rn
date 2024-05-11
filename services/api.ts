@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-export const apiSlice = createApi({
+import type {RootState} from '../store'
+const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery(
     {
       baseUrl: process.env.EXPO_PUBLIC_BASE_URL,
       prepareHeaders: (headers, { getState }) => {
-        const token = getState().user.token
+        const token = (getState() as RootState).user.token
         if (token) headers.set('authorization', token)
         return headers
       },
@@ -16,3 +17,5 @@ export const apiSlice = createApi({
     
   }),
 })
+
+export default apiSlice;

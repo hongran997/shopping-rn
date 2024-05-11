@@ -1,30 +1,31 @@
-import { Provider } from 'react-redux';
-import { View, Text } from 'react-native';
-import { PersistGate } from 'redux-persist/integration/react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider, DarkTheme, DefaultTheme, useTheme } from '@react-navigation/native';
+import { Stack } from 'expo-router/stack'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Toast from 'react-native-toast-message'
+import { Provider } from 'react-redux'
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
 
-import { Stack } from 'expo-router/stack';
-import { persistStore } from 'redux-persist';
-import store from '../store/index';
-const persistor = persistStore(store);
-console.log(DefaultTheme);
+import { store } from '@/store'
 
+const persistor = persistStore(store)
 
-export default function AppLayout() {
+export default function RootLayout() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider value={DefaultTheme}>
-          <SafeAreaProvider>
-            <Stack>
-              <Stack.Screen name="(main)/(tabs)" options={{ headerShown: false, title: 'app.js' }} />
-              <Stack.Screen name="(auth)" options={{ headerShown: false, title: 'app.js' }} />
-            </Stack>
+        <SafeAreaProvider>
+          <Stack>
+            <Stack.Screen
+              name="(main)/(tabs)"
+              options={{
+                headerShown: false,
+              }}
+            />
+            {/* <Stack.Screen name="(main)/products/index" getId={({ params }) => params.category} /> */}
+          </Stack>
+          <Toast />
           </SafeAreaProvider>
-        </ThemeProvider>
       </PersistGate>
     </Provider>
-  );
+  )
 }
-

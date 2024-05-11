@@ -7,7 +7,7 @@ const TabsLayout = () => {
   return (
     <Tabs>
       <Tabs.Screen
-        name="feed"
+        name="index"
         options={{
           title: 'feed',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,

@@ -5,8 +5,7 @@ const Cart = () => {
   return (
     <View>
       <Text>Cart</Text>
-      <Link href="/notFound" >Go to NotFound</Link>
-      <Link href="(auth)/modal">Go to modal</Link>
+      <Link href="[...unmatched]" >Go to NotFound</Link>
     </View>
   )
 }
