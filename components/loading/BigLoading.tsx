@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import Loading from './Loading';
 
-const Feed = () => {
+const BigLoading = () => {
   return (
     <View>
-      <Text>Feed</Text>
+      <Loading />
     </View>
   )
 }
 
-export default Feed
+export default BigLoading
 
 const styles = StyleSheet.create({})

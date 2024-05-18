@@ -42,10 +42,17 @@
 
 ### Six day
 1. upgrade expo and releated dependencies.  From upgrage Expo Go in My Iphone  --fix 很迅速,在bash 下执行
-2. 好像一旦进入过tabs 页面，就不会刚进页面就会Not Found Page.
 
 ### Seven day
 1. 前端工程化配置
+2. 初始化store, store持久化用persist, 优化store的写法用toolkit
+3. 初始化service, 用toolkit的新写法调用接口
+4. 调整项目目录, 新建main 文件夹，把tabs 移动到main 文件夹中去
+> 需要了解persist的常用api, 组件，toolkit的常用api, 组件
+
+### Eight Day ------ rn的常用组件
+1. 开发Feed页面,查看相关组件的作用，用法
+> 需要了解rn的常用组件
 
 
 ### 参考项目
@@ -70,3 +77,17 @@
 
 ### 参考博客
 1. https://blog.csdn.net/weixin_30230009/article/details/136084273
+
+### React 与 Vue 的不同
+1. React 会通过props 把children 传递给另一个组件
+2. React 函数的概念很强【不好设置参数来查看效果】 Vue组件的概念很强【很方便查看一个组件的效果】
+3. JSX 的语法逻辑使得代码不好读，也不好写，看着也不整齐，尤其是遇到多个if, else的时候，用很多的？： 简直要崩溃
+4. 好烦啊，需要跳着组件看。
+5. 偶尔看下下面的warning 也是有用的啊。
+6. 还是从小组件开始开发，从内部组件开始开发
+7. 函数的方式难组织，但灵活性更强了
+
+
+
+通过注释代码，替换更为简单的结构来排查问题。
+如果是image不显示，99% 是高度的问题,设置height:100%是没用，因为这种情况一般父组件也是0 
