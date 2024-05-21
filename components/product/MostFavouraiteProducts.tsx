@@ -22,7 +22,7 @@ const MostFavouraiteProducts = (props) => {
     }
   )
 
-  console.log(products);
+  // console.log(products);
   
   return (
     <FeedSectionContainer title="热销商品">
