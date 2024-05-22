@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View, ScrollView } from 'react-native'
 import { Icons } from '@/components';
 import { router, Stack } from 'expo-router';
+import tw from 'twrnc';
 
 const Profile = () => {
 
@@ -52,10 +53,19 @@ const Profile = () => {
       <Stack.Screen options={{ headerShown: false, title: 'profile'}}></Stack.Screen>
       {/* Avator + username + phone */}
       <ScrollView style={styles.container}>
-        <View></View>
+        <View>
+          <View>
+            <Icons.AntDesign name="arrowright" size={18} color="black" />
+            <View >
+              <Text style={ tw`p-4` }>admin</Text>
+              <Text>18231321037</Text>
+            </View>
+          </View>
+          <Icons.AntDesign name="arrowright" size={18} color="black" />
+        </View>
         {
           profilePaths.map((profileItem) => (
-            <View style={styles.listItem}>
+            <View style={styles.listItem} key={profileItem.path}>
               <View style={styles.listLeft}>
                 <profileItem.Icon name={profileItem.IconName} size={24} style={{paddingRight: 10}}></profileItem.Icon>
                 <Text>{profileItem.name}</Text>
@@ -64,8 +74,13 @@ const Profile = () => {
                 <Icons.AntDesign name="arrowright" size={18} color="black" />
               </Pressable>
             </View>
+            
           ))
         }
+        <View style={styles.footer}>
+          <Text>退出</Text>
+          <Icons.AntDesign name="arrowright" size={18} color="black" />
+        </View>
       </ScrollView>
     </View>
   )
@@ -75,12 +90,12 @@ export default Profile
 
 const styles = StyleSheet.create({
   container: {
-    // borderWidth: 1,
-    // borderColor: 'red',
-    // borderStyle: 'solid',
-    // backgroundColor: '#fff',
-    // width: '100%',
-    // height: '100vh',
+    borderWidth: 1,
+    borderColor: 'red',
+    borderStyle: 'solid',
+    backgroundColor: '#fff',
+    width: '100%',
+    height: '100vh',
   },
   listLeft: {
     display: "flex",
@@ -90,9 +105,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     borderStyle: 'solid',
+  },
+  footer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    marginHorizontal: 20,
   }
 })

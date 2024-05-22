@@ -8244,7 +8244,7 @@ synckit@^0.8.6:
     "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
 
-tailwindcss@^3.4.3:
+tailwindcss@>=2.0.0, tailwindcss@^3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.3.tgz#be48f5283df77dfced705451319a5dffb8621519"
   integrity sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==
@@ -8473,6 +8473,13 @@ turbo-stream@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/turbo-stream/-/turbo-stream-2.0.1.tgz#4daf74bc678ec1285b67ce42fe7a2852acdc3235"
   integrity sha512-sm0ZtcX9YWh28p5X8t5McxC2uthrt9p+g0bGE0KTVFhnhNWefpSVCr+67zRNDUOfo4bpXwiOp7otO+dyQ7/y/A==
+
+twrnc@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/twrnc/-/twrnc-4.2.0.tgz#865ec4b06ae048ca62053d283ec4755e824efdce"
+  integrity sha512-W0frl6Xt4KlrGOBBQHX4ijNDziHZR/9nWyeVbpF2qwEd15wNrMJpTmJT2PmleMbuuDl+/5DgRMmloXKXUBevdQ==
+  dependencies:
+    tailwindcss ">=2.0.0"
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"

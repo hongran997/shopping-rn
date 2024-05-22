@@ -14,6 +14,7 @@ export { default as BannerTwo } from './banner/BannerTwo';
 export { default as ShowWrapper } from './common/ShowWrapper';
 export { default as FeedSectionContainer } from './common/FeedSectionContainer';
 export { default as Skeleton } from './common/Skeleton';
+export { default as Icons } from './common/Icons';
 
 // product
 export { default as MostFavouraiteProducts } from './product/MostFavouraiteProducts';
