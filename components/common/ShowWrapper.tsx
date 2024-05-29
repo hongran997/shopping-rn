@@ -5,7 +5,8 @@ import React from 'react'
 
 const ShowWrapper = (props: any) => {
 
-  const { isError, error, refetch, isFetching, dataLength, type='list', origialArgs = null, isSuccess, emptyComponent, loadingComponent, children } = props;
+  const { isError, error, refetch, isFetching, dataLength, type = 'list', origialArgs = null,
+    isSuccess, emptyComponent, loadingComponent, children } = props;
 
 
   return (

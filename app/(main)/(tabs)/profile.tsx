@@ -1,9 +1,15 @@
 import { Pressable, StyleSheet, Text, View, ScrollView } from 'react-native'
-import { Icons } from '@/components';
-import { router, Stack } from 'expo-router';
+import { Icons, Person } from '@/components';
+import { router, Stack, Link } from 'expo-router';
+// import { useUserInfo } from '@/hooks';
 import tw from 'twrnc';
+import Toast from 'react-native-toast-message'
+import { useAppDispatch } from '@/hooks';
+import { userLogout } from '@/store';
 
 const Profile = () => {
+
+  // const { userInfo, isLoading } = useUserInfo();
 
   const profilePaths = [
     {
@@ -44,76 +50,66 @@ const Profile = () => {
     }
   ];
 
+  const dispatch = useAppDispatch();
+
   const handlePressEvent = (path: string) => {
     router.push(path); 
   }
 
+  const handleLogout = () => {
+    dispatch(userLogout())
+    Toast.show({
+      type: "success",
+      text2: '已退出登录'
+    })
+  }
+
   return (
-    <View>
-      <Stack.Screen options={{ headerShown: false, title: 'profile'}}></Stack.Screen>
-      {/* Avator + username + phone */}
-      <ScrollView style={styles.container}>
-        <View>
-          <View>
-            <Icons.AntDesign name="arrowright" size={18} color="black" />
+    <>
+      <Stack.Screen options={{headerShown: false}}></Stack.Screen>
+      <ScrollView style={tw`bg-white`}>
+        {/* Avator + username + phone */}
+        <View style={tw`flex flex-row items-center justify-between pt-5 px-5 pb-3`}>
+          <View style={tw`flex flex-row items-center`}>
+            <Person style={tw`w-12 h-12 pr-5`} />
             <View >
-              <Text style={ tw`p-4` }>admin</Text>
-              <Text>18231321037</Text>
+              <Text style={tw`text-xl font-bold`}>admin</Text>
+              <Text style={tw`text-sm`}>18231321037</Text>
             </View>
           </View>
-          <Icons.AntDesign name="arrowright" size={18} color="black" />
+          <Link href="/profile/personal-info">
+            <Icons.Feather name="edit" ssize={30} color="black" style={tw`icon text-gray-700  lg:mr-3`} />
+          </Link>
         </View>
+        {/* About mine */}
+        <View style={tw`mt-7 px-4`}>
         {
           profilePaths.map((profileItem) => (
-            <View style={styles.listItem} key={profileItem.path}>
-              <View style={styles.listLeft}>
+            <View style={tw`flex flex-row justify-between py-1 border-b-2 border-b-slate-400 border-solid`} key={profileItem.path}>
+              <View style={tw`flex flex-row` }>
                 <profileItem.Icon name={profileItem.IconName} size={24} style={{paddingRight: 10}}></profileItem.Icon>
                 <Text>{profileItem.name}</Text>
               </View>
               <Pressable onPress={() => handlePressEvent(profileItem.path)}>
-                <Icons.AntDesign name="arrowright" size={18} color="black" />
+                <Icons.AntDesign name="arrowright" size={24} color="black" />
               </Pressable>
             </View>
-            
           ))
-        }
-        <View style={styles.footer}>
-          <Text>退出</Text>
-          <Icons.AntDesign name="arrowright" size={18} color="black" />
+          }
+        </View>
+        {/* logout */}
+        <View style={tw`mt-3 px-4`}>
+          <Pressable onPress={handleLogout} style={tw`flex flex-row justify-between`}>
+            <Text>退出</Text>
+            <Icons.AntDesign name="arrowright" size={18} color="black" />
+          </Pressable>
         </View>
       </ScrollView>
-    </View>
+    </>
   )
 }
 
 export default Profile
 
 const styles = StyleSheet.create({
-  container: {
-    borderWidth: 1,
-    borderColor: 'red',
-    borderStyle: 'solid',
-    backgroundColor: '#fff',
-    width: '100%',
-    height: '100vh',
-  },
-  listLeft: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  listItem: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginHorizontal: 20,
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    borderStyle: 'solid',
-  },
-  footer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: "space-between",
-    marginHorizontal: 20,
-  }
 })
