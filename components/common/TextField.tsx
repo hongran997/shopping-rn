@@ -1,14 +1,15 @@
 import { StyleSheet, TextInput, View, Text } from 'react-native'
 import React from 'react'
 import tw from 'twrnc'
-import { useController } from 'react-hook-form'
+import { useController } from 'react-hook-form';
+import DisplayError from './DisplayError';
 
 
 const TextField = (props) => {
 
   const { label, errors, name, type = 'text', control, direction, style, ...inputProps } = props
 
-  const field = useController({ name, control, rules: { required: true } });
+  const { field } = useController({ name, control, rules: { required: true } });
 
   const onChangeHandler = (value) => {
     const inputValue = value;
@@ -32,6 +33,7 @@ const TextField = (props) => {
         style={tw`w-full px-3 py-2.5 transition-colors border border-gray-200 rounded-md outline-none bg-zinc-50/30 focus:border-blue-600 leading-none mt-2 ${style}`}
         {...inputProps}
       />
+      <DisplayError errors={ errors} />
     </View>
   )
 }
