@@ -4,6 +4,7 @@ import Toast from 'react-native-toast-message'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
+import { StatusBar } from 'react-native'
 
 import { store } from '@/store'
 
@@ -13,15 +14,10 @@ export default function RootLayout() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{ tw:`flex pt:${StatusBar.currentHeight}`}}>
           <Stack>
-            <Stack.Screen
-              name="(main)/(tabs)"
-              options={{
-                headerShown: false,
-              }}
-            />
-            {/* <Stack.Screen name="(main)/products/index" getId={({ params }) => params.category} /> */}
+            <Stack.Screen name="(main)/(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="(main)/product/index" getId={({ params }) => params.category} />
           </Stack>
           <Toast />
           </SafeAreaProvider>
