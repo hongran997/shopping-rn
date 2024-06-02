@@ -54,6 +54,22 @@
 1. 开发Feed页面,查看相关组件的作用，用法
 > 需要了解rn的常用组件
 
+### Nine day -----  twrnc
+1. 添加TailWindCSS
+2. 添加Twrnc
+
+### Ten day ----  
+1. 开发Category 页面
+
+### Eleven day
+1. 开发Cart 页面
+
+### Twelve day
+1. 开发login页面
+2. 开发register页面 
+name: 墨镜123  
+email: zhaohongran1997@163.com
+password：123456
 
 ### 参考项目
 1. https://github.com/hongran997/c-shopping-rn 参考项目
@@ -91,3 +107,6 @@
 
 通过注释代码，替换更为简单的结构来排查问题。
 如果是image不显示，99% 是高度的问题,设置height:100%是没用，因为这种情况一般父组件也是0 
+map(item => {(jsx)})  item 后面的{} 不要加，加了jsx 就显示不出来了，直接用() 就可以了。
+jsx 里面也可以写 if 哈，写了这个之后，jsx 要加大括号和return
+aspect-square  设置了宽高1:1， 当设置了宽度的时候，就相当于设置了高度了
