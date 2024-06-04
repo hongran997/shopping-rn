@@ -6,6 +6,7 @@ import {
   ShowWrapper, FeedHeader, Slider as MainSlider, MostFavouraiteProducts,
   BannerOne, BannerTwo, Categories, DiscountSlider, BestSellsSlider
 } from '@/components/';
+import tw from 'twrnc';
 
 const Feed = () => {
   // get Feeds Query
@@ -30,7 +31,7 @@ const Feed = () => {
     <View style={styles.container}>
       <Stack.Screen options={{ header: props => <FeedHeader />}} />
       <ShowWrapper error={error} isError={isError} refetch={refetch} isFetching={isFetching} isSuccess={isSuccess} type="detail">
-        <ScrollView>
+        <ScrollView style={tw`px-3`}>
           <MainSlider data={sliders} ></MainSlider>
           <Categories childCategories={{ categories: childCategories, title: '所有分类' }}
             color={currentCategory?.colors?.start}

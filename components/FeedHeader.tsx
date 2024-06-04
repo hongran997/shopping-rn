@@ -8,6 +8,7 @@ import { useAppSelector } from '@/hooks';
 import { formatNumber } from '@/utils';
 import { router } from 'expo-router';
 import Search from './Search';
+import tw from 'twrnc';
 
 
 const FeedHeader = () => {
@@ -20,29 +21,28 @@ const FeedHeader = () => {
   }
 
   return (
-    <View style={{ paddingTop: insets.top, paddingBottom: 10, backgroundColor: '#fff'}} >
-      <View style={[styles.container, { justifyContent: "space-between" }]}>
-        <View style={styles.section}>
+    <View style={tw`pt: ${insets.top} px-3 bg-white`}>
+      <View style={tw`pb-3 border-b border-b-gray-400`}>
+        <View style={tw`flex flex-row justify-between items-center `}>
           <Logo width={120} height={40} />
+          <View style={styles.section}>
+            <Pressable onPress={() => handleTouchClick('/notice')}>
+              <Icons.Ionicons name="notifications-outline" size={24} color="black" />
+            </Pressable>
+            <Pressable onPress={() => handleTouchClick('/cart')}>
+              <Icons.AntDesign name="shoppingcart" size={24} color="black" />
+              {
+                formatNumber(totalItems) && (
+                  <View style={styles.cartNum}>
+                    <Text style={{ color: 'red' }}>{formatNumber(totalItems)}</Text>
+                  </View>
+                )
+              }
+            </Pressable>
+          </View>
         </View>
-        <View style={styles.section}>
-          <Pressable onPress={() => handleTouchClick('/notice')}>
-            <Icons.Ionicons name="notifications-outline" size={24} color="black" />
-          </Pressable>
-
-          <Pressable onPress={() => handleTouchClick('/cart')}>
-            <Icons.AntDesign name="shoppingcart" size={24} color="black" />
-            {
-              formatNumber(totalItems) && (
-                <View style={styles.cartNum}>
-                  <Text style={{ color: 'red' }}>{formatNumber(totalItems)}</Text>
-                </View>
-              )
-            }
-          </Pressable>
-        </View>
+        <Search />
       </View>
-      <Search />
     </View>
   )
 }
@@ -50,12 +50,6 @@ const FeedHeader = () => {
 export default FeedHeader
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff"
-  },
   section: {
     display: "flex",
     flexDirection: "row",

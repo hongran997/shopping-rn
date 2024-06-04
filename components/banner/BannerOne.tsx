@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View , Image} from 'react-native'
-import  FeedSectionContainer from '../common/FeedSectionContainer'
+import FeedSectionContainer from '../common/FeedSectionContainer'
+import tw from 'twrnc'
 
 const BannerOne = (props) => {
   const { data, style } = props;
@@ -11,11 +12,11 @@ const BannerOne = (props) => {
   return (
     <FeedSectionContainer title="今日专题">
       {
-        <View style={styles.container}>
+        <View style={tw`flex flex-row flex-wrap justify-between`}>
           {
             data.map((item) => (
-              <View style={styles.imgBox} key={item._id}>
-                <Image source={{ uri: item.image.url }} style={styles.img} />
+              <View style={tw`w-[49%] h-24 mb-[2%]`} key={item._id}>
+                <Image source={{ uri: item.image.url }} style={tw`w-full h-full rounded-lg`} />
               </View>
 
             ))
@@ -27,22 +28,3 @@ const BannerOne = (props) => {
 }
 
 export default BannerOne
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    flexWrap: "wrap"
-  },
-  imgBox: {
-    width: "49%",
-    height: 24,
-    marginBottom: "2%",
-  },
-  img: {
-    width: "100%",
-    height: "100%",
-    borderRadius: 6,
-  }
-})

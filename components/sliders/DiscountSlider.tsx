@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, Pressable, Image, FlatList } from 'react-native';
 import FeedSectionContainer from '../common/FeedSectionContainer';
+import Skeleton from '../common/Skeleton';
 import DiscountProduct from '../product/DiscountProduct';
 import ProductPrice from '../product/ProductPrice';
 import { router, Link } from 'expo-router';
 import { useGetProductsQuery } from '@/services';
+import tw from 'twrnc';
 
 
 const DiscountSlider = ({ currentCategory }) => {
@@ -29,21 +31,29 @@ const DiscountSlider = ({ currentCategory }) => {
 
   return (
     <FeedSectionContainer title="折扣商品" showMore onJumptoMore={handleJumpMore}>
-      <FlatList
-        data={products}
-        horizontal
-        renderItem={({ item }) => (<Item content={item}></Item>)}
-      />
+      {
+        isLoading
+          ? <DiscountSkeleton />
+          : !products.length
+            ? null
+            : <FlatList
+                data={products}
+                horizontal
+                renderItem={({ item }) => (<Item content={item}></Item>)}
+              />
+      }
+      
     </FeedSectionContainer>
   )
 }
 
 const Item = ({content}) => {
   return (
-    <Link href={{ pathname: `/products/${content._id}` }} asChild>
-      <Pressable style={styles.discountProductItem}>
-        <Image style={styles.img} source={{ uri: content.images[0].url }} />
-        <View style={styles.productDesc}>
+    <Link href={{ pathname: `/products/${content._id}` }} key={ content._id } asChild>
+      <Pressable style={tw`w-fit h-fit mx-0.5 py-3`}>
+        <Image style={tw`w-32 h-32`} source={{ uri: content.images[0].url }} />
+        {/* Todo: column-gap: 8px  gap-x-2  justify-enenly*/}
+        <View style={tw`flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2`}>
           <DiscountProduct discount={content.discount}></DiscountProduct>
           <ProductPrice inStock={content.inStock} discount={content.discount} price={content.price} />
         </View>
@@ -52,25 +62,39 @@ const Item = ({content}) => {
   )
 }
 
+const DiscountSkeleton = () => {
+  return (
+    <FlatList
+      data={Array(10).fill('_')}
+      horizontal
+      renderItem={({ item, index }) => (
+        <Skeleton.Items style={tw`mr-2`} key={index}>
+          {/* Todo check later */}
+          <Skeleton.Item
+            index={1}
+            height="h-32 lg:h-36"
+            width="w-32 lg:w-36"
+            animated="background"
+            style="mx-auto"
+          />
+          <Skeleton.Item
+            index={2}
+            height="h-5"
+            width="w-32"
+            animated="background"
+            style="mt-4 mx-auto"
+          />
+          <Skeleton.Item
+            index={3}
+            height="h-5"
+            width="w-20"
+            animated="background"
+            style="mt-4 mx-auto"
+          />
+        </Skeleton.Items>
+      )}
+    />
+  )
+}
+
 export default DiscountSlider
-
-const styles = StyleSheet.create({
-  container: {
-
-  },
-  discountProductItem: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    width: 50
-  },
-  productDesc: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  img: {
-    width: 32,
-    height: 32,
-  }
-})

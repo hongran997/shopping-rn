@@ -1,28 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
+import tw from 'twrnc'
 
 const DiscountProduct = ({ discount }) => {
   return (
-    <>
-      <Text style={styles.text}>{discount}%</Text>
-    </>
+    <View style={tw`w-fit h-fit pt-0.5 px-3 bg-red-500  block rounded-full overflow-hidden`}>
+      <Text style={tw`text-white`}>{discount}%</Text>
+    </View>
   )
 }
 
 export default DiscountProduct
-
-const styles = StyleSheet.create({
-  container: {
-    width: 32,
-    textAlign: "center",
-  },
-  text: {
-    height: 16,
-    lineHeight: 10,
-    textAlign: "center",
-    color: '#fff',
-    backgroundColor: "red",
-    borderRadius: 6,
-    paddingHorizontal: 5,
-    paddingVertical: 3,
-  }
-})

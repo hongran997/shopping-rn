@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import { router } from 'expo-router'
 import Icons  from './common/Icons';
-import React from 'react'
+import tw from 'twrnc';
 
 const Search = () => {
   const handleSearch = () => {
@@ -9,9 +9,13 @@ const Search = () => {
   }
 
   return (
-    <Pressable onPress={()=> handleSearch} style={styles.container}>
-      <Text style={styles.searchBox}>善假于物，用好搜索...</Text>
-      <Icons.EvilIcons style={ styles.searchIcon } name="search" size={24} color="black" />
+    // Todo Why does Search Icon in the right.
+    <Pressable onPress={() => handleSearch}
+      style={tw`flex flex-row rounded-md bg-zinc-100/80 justify-between items-center p-1`}>
+      <Text style={tw`flex-grow py-1 px-3 text-left bg-transparent outline-none cursor-pointer text-gray-400 focus:border-none`}>
+        善假于物，用好搜索...
+      </Text>
+      <Icons.EvilIcons name="search" size={24} color="black" />
     </Pressable>
     
   )
@@ -20,17 +24,7 @@ const Search = () => {
 export default Search
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-    // borderWidth: 1,
-    // borderColor: 'red',
-    // borderStyle: "solid",
-    display: "flex",
-  },
   searchBox: {
-    // borderWidth: 1,
-    // borderColor: 'gray',
-    // borderStyle: "solid",
     borderRadius: 3,
     backgroundColor: '#E5E7EB',
     cursor: "pointer",
@@ -38,9 +32,4 @@ const styles = StyleSheet.create({
     padding: 5,
     marginHorizontal: 5,
   },
-  searchIcon: {
-    position: "absolute",
-    right: 2,
-    top: 0,
-  }
 })

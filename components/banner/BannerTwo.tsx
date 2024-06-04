@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
 import FeedSectionContainer from '../common/FeedSectionContainer';
-import { FlashList } from '@shopify/flash-list';
+import tw from 'twrnc';
 
 
 const Item = ({ content }) => {
   return (
-    <View key={content._id} style={styles.imgBox}>
+    <View key={content._id} style={tw`w-[368px] h-[210px] mr-4`} >
       {/* 放Text 可以，放Image 就显示不出来 */}
-      <Image key={content._id} source={{ uri: content.image.url }} style={styles.img} />
+      <Image key={content._id} source={{ uri: content.image.url }} style={tw`w-full h-full rounded-md`} />
     </View>
   )
 }
@@ -16,6 +16,8 @@ const Item = ({ content }) => {
 const BannerTwo = (props) => {
 
   const { data } = props;
+
+  if (data.length === 0) return null;
 
   return (
     <FeedSectionContainer title="推荐专题">
@@ -31,13 +33,6 @@ const BannerTwo = (props) => {
 export default BannerTwo
 
 const styles = StyleSheet.create({
-  imgBox: {
-    // borderWidth: 1,
-    // borderStyle: "solid",
-    // borderColor: "red",
-    // width: "auto",
-    // height: "auto",
-  },
   img: {
     // 因为父级组件的width, height都是0，所以用100%不生效，100vw又不是RN支持的单位，所以直接指定宽高大小是最好的
     width: 430,

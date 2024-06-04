@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    // alignItems: "center",
     flex: 1
   },
   warnTitle: {
@@ -61,8 +60,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 40,
     height: 20,
-    // paddingVertical: 2,
-    // paddingHorizontal: 4,
     fontSize: 13,
     textAlign: "center",
     lineHeight: 20,

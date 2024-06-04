@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import Icons from './Icons';
-import React from 'react'
+import tw from 'twrnc';
 
 const FeedSectionContainer = (props: any) => {
   const { title, showMore = false, onJumptoMore, children, style = {} } = props;
@@ -9,14 +9,14 @@ const FeedSectionContainer = (props: any) => {
     onJumptoMore();
   }
   return (
-    <View style={[style, { marginTop: 6 , display: "flex", flexDirection: "column"}]}>
-      <View style={styles.container}>
-        <Text>{title}</Text>
+    <View style={tw`flex flex-col mt-6`}>
+      <View style={tw`flex flex-row justify-between items-center mb-3`}>
+        <Text style={tw`mr-auto text-base font-bold`}>{title}</Text>
         {
           showMore && (
             <Pressable style={ styles.goMore} onPress={()=> handleJumpMore}>
-              <Text >更多</Text>
-              <Icons.AntDesign name="arrowright" size={18} color="black" />
+              <Text style={tw`text-base text-neutral-400`}>更多</Text>
+              <Icons.AntDesign name="arrowright" size={14} color="rgb(163 163 163)" />
             </Pressable>
           )
         }
