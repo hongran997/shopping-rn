@@ -5,6 +5,7 @@ import { Link } from 'expo-router';
 import tw from 'twrnc';
 
 const Categories = (props: any) => {
+  
   const { childCategories, color, name } = props;
 
   if (childCategories.categories.length > 0 && color && name) {

@@ -14,8 +14,9 @@ const ShowWrapper = (props: any) => {
       {
         isError ? (
           <View style={styles.container}>
-            <View style={styles.warnTitle}>出现异常</View>
-            <View style={styles.warnMsg}>{error?.error}</View>
+            {/* Good */}
+            <Text style={styles.warnTitle}>出现异常</Text>
+            <Text style={styles.warnMsg}>{error?.error}</Text>
             <Pressable style={styles.touchbtn} onPress={refetch}>
               <Text style={styles.retrybtn}>重试</Text>
             </Pressable>

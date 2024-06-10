@@ -52,7 +52,6 @@ const Item = ({content}) => {
     <Link href={{ pathname: `/products/${content._id}` }} key={ content._id } asChild>
       <Pressable style={tw`w-fit h-fit mx-0.5 py-3`}>
         <Image style={tw`w-32 h-32`} source={{ uri: content.images[0].url }} />
-        {/* Todo: column-gap: 8px  gap-x-2  justify-enenly*/}
         <View style={tw`flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2`}>
           <DiscountProduct discount={content.discount}></DiscountProduct>
           <ProductPrice inStock={content.inStock} discount={content.discount} price={content.price} />
@@ -69,7 +68,6 @@ const DiscountSkeleton = () => {
       horizontal
       renderItem={({ item, index }) => (
         <Skeleton.Items style={tw`mr-2`} key={index}>
-          {/* Todo check later */}
           <Skeleton.Item
             index={1}
             height="h-32 lg:h-36"

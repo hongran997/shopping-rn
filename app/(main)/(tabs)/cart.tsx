@@ -7,28 +7,28 @@ import tw from 'twrnc';
 
 const Cart = () => {
   // getUserInfo
-  // const { userInfo, mustAuthAction } = useUserInfo();
+  const { userInfo, mustAuthAction } = useUserInfo();
 
   // store
   const { cartItems, totalItems, totalPrice, totalDiscount } = useAppSelector(state => state.cart);
 
   const handleRoute = () => {
-    // mustAuthAction(() => {
-    //   router.push({pathname: '/payment', params: {}})
-    // })
+    mustAuthAction(() => {
+      router.push({pathname: '/payment', params: {}})
+    })
   }
 
   return (
     <>
       <Stack.Screen options={{ title: `Cart(${cartItems.length} items)` }}></Stack.Screen>
       <AuthWrapper>
-        {/* {
+        {
           cartItems.length === 0 ? (
             <View style={tw`h-full bg-white py-20`}>
               <EmptyCart style={tw`mx-auto w-52 h-52`} />
               <Text style={tw`text-base font-bold text-center`}>您的购物车是空的！</Text>
             </View>
-          ) : ( */}
+          ) : (
             <>
               <ScrollView style={tw`bg-white`}>
                 <View style={tw`mb-20 py-4`}>
@@ -56,8 +56,8 @@ const Cart = () => {
                 <Button style='w-1/2' onPress={handleRoute}>继续</Button>
               </View>
             </>
-          {/* ) */}
-        {/* } */}
+          ) 
+        }
       </AuthWrapper>
     </>
   )

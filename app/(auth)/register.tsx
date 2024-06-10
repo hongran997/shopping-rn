@@ -25,7 +25,6 @@ const Register = () => {
   })
 
   const onSubmit = ({ name, email, password }) => {
-    console.log(name, email, password);
     if (name && email && password) {
       createUser({body: {name, email, password}})
     }

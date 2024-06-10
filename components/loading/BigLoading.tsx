@@ -4,9 +4,9 @@ import Loading from './Loading';
 
 const BigLoading = () => {
   return (
-    <View>
+    <>
       <Loading />
-    </View>
+    </>
   )
 }
 

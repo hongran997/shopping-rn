@@ -71,6 +71,13 @@ name: 墨镜123
 email: zhaohongran1997@163.com
 password：123456
 
+### Thirteen day
+1. 优化index页面
+
+### Fourteen day
+1. 开发主页面下的子页面
+
+
 ### 参考项目
 1. https://github.com/hongran997/c-shopping-rn 参考项目
 2. https://c-shopping-three.vercel.app  Web端项目和服务

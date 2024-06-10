@@ -23,8 +23,6 @@ const MostFavouraiteProducts = (props) => {
       }),
     }
   )
-
-  // console.log(products);
   
   return (
     <FeedSectionContainer title="热销商品">
@@ -46,14 +44,13 @@ const MostFavouraiteProducts = (props) => {
                 <Pressable style={tw`w-[48%] mb-2 p-1 transition border border-gray-200`}>
                   {/* rating */}
                   <View style={tw`flex flex-row gap-x-2`}>
-                    {/* TODO: text-base */}
                     <Text style={tw`text-base`}>{product.rating.toFixed(1)}</Text>
                     <Icons.FontAwesome name="star" size={24} color='rgb(251 191 36)'></Icons.FontAwesome>
                   </View>
                   {/* image */}
                   <Image source={{ uri: product.images[0].url }} style={tw`h-32 w-28 my-3 mx-auto`} />
                   {/* price */}
-                  <View style={tw`flex flex-row items-start ${product.discount ? 'justify-evenly' : 'justify-end pl-8'} mt-2 gay-x-2` }>
+                  <View style={tw`flex flex-row items-start ${product.discount ? 'justify-evenly' : 'justify-end pl-8'} mt-2 gap-x-2` }>
                     {
                       product.discount ? <DiscountProduct discount={product.discount}></DiscountProduct> : null
                     }

@@ -40,7 +40,11 @@ const Items = props => {
   )
 }
 
-export const Item = ({ index, height, width, animated, style, children }) => {
+export const Item = (props) => {
+
+  // Good
+  const { width, height, animated, style, index } = props
+  
   return (
     <View
       key={index}
@@ -51,7 +55,7 @@ export const Item = ({ index, height, width, animated, style, children }) => {
             : 'bg-white'
         } rounded-md ${style}`}
     >
-      {children}
+      {/* {children} */}
     </View>
   )
 }

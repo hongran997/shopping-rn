@@ -6,8 +6,6 @@ const BannerOne = (props) => {
   const { data, style } = props;
 
   if (data.length === 0) return null;
-
-  // console.log(data);
   
   return (
     <FeedSectionContainer title="今日专题">

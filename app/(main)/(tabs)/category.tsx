@@ -32,7 +32,6 @@ const Category = () => {
   useEffect(() => {
     if (categories.length) {
       setActiveMinCat(categories.filter((category) => category.level === 1)[0]);
-      console.log(categories.filter((category) => category.level === 1)[0]);
     }
   }, [categories])
 
@@ -56,7 +55,7 @@ const Category = () => {
             {
               categories.length ? categories.filter((category) => category.level === 1).map(topCategory =>
                   <Pressable
-                  style={tw`flex flex-col items-center px-2 py-3 space-y-2 border-b border-r border-neutral-200 bg-neutral-100 ${topCategory._id === activeMinCat._id ? 'bg-white border-r-0' : ''} `}
+                      style={tw`flex flex-col items-center px-2 py-3 space-y-2 border-b border-r border-neutral-200 bg-neutral-100 ${topCategory._id === activeMinCat._id ? 'bg-white border-r-0' : ''} `}
                       key={topCategory._id}
                       onPress={() => handleActive(topCategory)}>
                         <View style={tw`rounded-full border-solid border-2 border-slate-200 overflow-hidden`}>
@@ -76,7 +75,7 @@ const Category = () => {
                     <View key={secondCategory._id}>
                       <Link href={{ pathname: '/products', params: { category: secondCategory.slug }}} asChild>
                         <Pressable>
-                          <Text style={tw`break-words py-2 text-red-400`}>{ secondCategory.name}</Text>
+                          <Text style={tw`break-words py-2 text-neutral-900`}>{ secondCategory.name}</Text>
                         </Pressable>
                       </Link>
                       <View style={tw`flex flex-row flex-wrap`}>
@@ -94,7 +93,6 @@ const Category = () => {
                         }
                       </View>
                     </View>
-                  
                   )
                 }
               })

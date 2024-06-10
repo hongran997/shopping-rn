@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import BigLoading from './BigLoading';
 
-const PageLoading = () => {
+const SingleProductScreen = () => {
   return (
-    <>
-      <BigLoading />
-    </>
+    <View>
+      <Text>SingleProductScreen</Text>
+    </View>
   )
 }
 
-export default PageLoading
+export default SingleProductScreen
 
 const styles = StyleSheet.create({})
