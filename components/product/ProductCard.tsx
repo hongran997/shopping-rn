@@ -17,8 +17,7 @@ const ProductCard = (props) => {
 
   // Renders
   return (
-    <Link href={`/product/${product._id}`}
-      asChild>
+    <Link href={`/product/${product._id}`} asChild key={product._id} >
       <Pressable style={tw`relative py-2 border-b border-gray-300`}>
         {/* SpecialSell - absolute */}
         <View style={tw`absolute top-2 left-0 z-10`}>
@@ -27,7 +26,7 @@ const ProductCard = (props) => {
         {/* left and right */}
         <View style={tw`w-[100%] flex flex-row justify-between items-end`}>
           {/* Product Image and Product Color */}
-          <View style={tw`flex w-1/3 p-1`}>
+          <View style={tw`flex p-1`}>
             <ResponsiveImage
               source={product.images[0]?.url}
               style={tw`w-26 h-26`}
@@ -56,7 +55,7 @@ const ProductCard = (props) => {
             2. Product Instock and Product Rating 
             3. Product Discount and Product Price 
           */}
-          <View style={tw`flex  w-2/3 px-2`}>
+          <View style={tw`flex-1 w-full min-w-58 px-2`}>
             {/* Product Detail */}
             <Text style={tw`w-[100%] h-12 leading-6 text-sm text-gray-800 break-all`}>
               {truncate(product.title, 70)}

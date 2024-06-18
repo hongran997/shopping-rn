@@ -19,7 +19,7 @@ const Item = ({ item, index }) => {
     <View style={tw`mr-4`} key={index}>
       { 
         item.map((row, rowIndex) => (
-          <Link href={{pathname: `/products/${row._id}`}} style={tw`px-1 py-4 w-60`} key={row._id}>
+          <Link href={{pathname: `/product/${row._id}`}} style={tw`px-1 py-4 w-60`} key={row._id}>
             <Pressable style={tw`flex flex-row`}>
               {/* flex-shrink: 0;  不收缩 flex: 1 1 auto; 自适应空间同步放大和缩小  */}
               <Image source={row.images[0].url} style={tw`w-24 h-24 shrink-0 mr-2`}></Image>

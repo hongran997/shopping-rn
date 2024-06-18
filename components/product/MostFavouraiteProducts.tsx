@@ -9,6 +9,7 @@ import Skeleton from '../common/Skeleton';
 import tw from 'twrnc';
 
 const MostFavouraiteProducts = (props) => {
+
   const { categorySlug } = props;
 
   const { products, isLoading } = useGetProductsQuery(
@@ -39,7 +40,7 @@ const MostFavouraiteProducts = (props) => {
                 </Skeleton.Items>
               ))
             : products?.map((product, index) => (
-              <Link href={{ pathname: `/products/${product._id}` }} asChild key={product._id}>
+              <Link href={{ pathname: `/product/${product._id}` }} asChild key={product._id}>
                 {/* TODO transition */}
                 <Pressable style={tw`w-[48%] mb-2 p-1 border border-gray-200`}>
                   {/* rating */}

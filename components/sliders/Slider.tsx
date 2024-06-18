@@ -9,7 +9,7 @@ const Slider = (props: any) => {
 
   return (
     <View style={tw`w-full h-[200px] mt-3 rounded-2xl overflow-hidden`}>
-      <Swiper showsPagination activeDotColor="#1D4ED8" dotColor="#E5E7EB">
+      <Swiper showsButtons activeDotColor="#1D4ED8" dotColor="#E5E7EB">
         {
           data.filter((ele: any) => ele.isPublic).map((item: any, index: number) => (
             <Image key={item._id} source={{ uri: item.image.url}} style={tw`w-full h-full`}></Image>

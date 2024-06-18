@@ -32,15 +32,22 @@ const Feed = () => {
       <Stack.Screen options={{ header: props => <FeedHeader />}} />
       <ShowWrapper error={error} isError={isError} refetch={refetch} isFetching={isFetching} isSuccess={isSuccess} type="detail">
         <ScrollView style={tw`px-3`}>
+          {/* Swiper */}
           <MainSlider data={sliders} ></MainSlider>
+          {/* 分类 */}
           <Categories childCategories={{ categories: childCategories, title: '所有分类' }}
             color={currentCategory?.colors?.start}
             name={currentCategory?.name}
           ></Categories>
+          {/* 折扣商品 */}
           <DiscountSlider currentCategory={currentCategory}></DiscountSlider>
+          {/* 今日专题 */}
           <BannerOne data={bannerOneType} />
+          {/* 畅销商品 */}
           <BestSellsSlider categorySlug={currentCategory?.slug} />
+          {/* 推荐专题 */}
           <BannerTwo data={bannerTwoType} />
+          {/* 热销商品 */}
           <MostFavouraiteProducts categorySlug={currentCategory?.slug} style={styles.box} />
         </ScrollView>
       </ShowWrapper>

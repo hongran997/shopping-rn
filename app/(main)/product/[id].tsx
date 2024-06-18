@@ -92,8 +92,10 @@ const SingleProductScreen = () => {
                 smilarProducts?.products?.length > 0 && <SmilarProductsSlider smilarProducts={smilarProducts} />
               }
               <View style={tw`section-divide-y h-2 bg-gray-100`}></View>
+              {/* Specification */}
               <Specification specification={ product.specification } />
               <View style={tw`section-divide-y h-2 bg-gray-100`}></View>
+              {/* Review */}
               <Reviews numReviews={product.numReviews}
                 prodouctID={product._id}
                 productTitle={product.title} />
