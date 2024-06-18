@@ -5,14 +5,13 @@ import { useAppSelector, useUserInfo } from '@/hooks';
 import { formatNumber } from '@/utils';
 import tw from 'twrnc';
 
-const Cart = (props) => {
+const Cart = () => {
+
   // getUserInfo
-  const { userInfo, mustAuthAction } = useUserInfo();
+  const { mustAuthAction } = useUserInfo();
 
   // store
   const { cartItems, totalItems, totalPrice, totalDiscount } = useAppSelector(state => state.cart);
-
-  console.log(cartItems, 'cartItems')
 
   const handleRoute = () => {
     mustAuthAction(() => {
@@ -33,25 +32,29 @@ const Cart = (props) => {
           ) : (
             <>
               <ScrollView style={tw`bg-white`}>
-                <View style={tw`mb-20 py-4`}>
+                <View style={tw`py-4`}>
                   {/* count */}
                   <View style={tw`flex flex-row justify-between px-4`}>
                     <Text style={tw`text-sm font-bold`}>您的购物车</Text>
                     <Text>{formatNumber(totalItems)}件商品</Text>
                   </View>
                   {/* cart Item */}
-                  <View style={tw`divide-y`}>
+                  <View>
                     {
                       cartItems.map(item => (
                         <CartItem item={item} key={item.itemID}></CartItem>
                       ))
                     }
-                  </View>
+                    </View>
+                    <View style={tw`section-divide-y h-2 bg-gray-100`}></View>
+                    <CartInfo handleRoute={handleRoute} cart/>
                 </View>
               </ScrollView>
               {/* go skiping  */}
-              <View style={tw`fixed bottom-0 left-0 flex flex-row justify-between px-4 py-2 bg-white`}>
-                <View style={tw``}>
+                <View style={tw`fixed bottom-0 left-0 right-0 z-10 
+                flex flex-row justify-between items-center 
+                px-3 py-3 bg-white border-t border-gray-300 lg:hidden`}>
+                <View>
                   <Text>总计购物车</Text>
                   <Text>{formatNumber(totalPrice - totalDiscount)}￥</Text>
                 </View>

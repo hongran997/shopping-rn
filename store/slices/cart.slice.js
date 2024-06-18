@@ -16,6 +16,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
+      
       const { color, size, productID } = action.payload
 
       const isItemExist = existItem(state.cartItems, productID, color, size)

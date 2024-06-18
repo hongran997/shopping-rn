@@ -67,7 +67,7 @@ const Category = () => {
             }
           </ScrollView>
           {/* right subcategory */}
-          <ScrollView style={tw`w-9/12 h-full bg-white`}>
+          <ScrollView style={tw`w-9/12 h-full bg-white ml-2`}>
             {
               activeMinCat ? categories.map((secondCategory) => {
                 if (secondCategory.parent === activeMinCat._id) {
@@ -81,8 +81,8 @@ const Category = () => {
                       <View style={tw`flex flex-row flex-wrap`}>
                         {
                           categories.filter(category => category.parent === secondCategory._id).map((thirdCategory, index) => (
-                              <Link href={{ pathname: '/products', params: { category: thirdCategory.slug } }} key={ thirdCategory._id } asChild>
-                                <Pressable style={tw`flex items-center w-[26%] mr-[11%] space-y-2 my-4 ${index % 3 == 2 ? 'mr-0' : ''}`}>
+                              <Link href={{ pathname: '/product', params: { category: thirdCategory.slug } }} key={ thirdCategory._id } asChild>
+                                <Pressable style={tw`flex items-center w-[25%] mr-[11%] space-y-2 my-4 ${index % 3 == 2 ? 'mr-0' : ''}`}>
                                   <View style={tw`flex items-center justify-center w-full aspect-square rounded-full border-solid border-2 border-slate-200 overflow-hidden`}>
                                     <Image source={{ uri: thirdCategory.image}} style={tw`w-[70%] h-[70%]`} />
                                   </View>

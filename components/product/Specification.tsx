@@ -24,7 +24,7 @@ const Specification = (props) => {
           renderSpecification.map((item, i) => {
             if (!item.value) return;
             else return (
-              <View style={tw`flex flex-row`} >
+              <View style={tw`flex flex-row`} key={item._id}>
                 {/* TODO 字母间距为什么用tracking-wide, 看不懂 */}
                 <Text style={tw`py-2 font-light leading-5 tracking-wide text-gray-500 w-1/2 pl-3`}>
                   {item.title}

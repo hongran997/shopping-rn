@@ -9,12 +9,12 @@ const ImageGallery = (props) => {
 
   return (
     <View style={tw`mb-5`}>
-      <Swiper style={tw`w-full aspect-square `}
+      <Swiper style={tw`w-full aspect-square`}
         showsButtons activeDotColor="#1D4ED8" dotColor="#E5E7EB">
         {
           images.map(((image,index) => (
             <ResponsiveImage
-              key={index}
+              key={image.url}
               source={image.url}
               style={tw`w-full aspect-square`}
               imageStyles={tw`h-full w-full `}

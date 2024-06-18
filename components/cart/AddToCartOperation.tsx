@@ -46,13 +46,14 @@ const AddToCartOperation = (props) => {
       dispatch(
         addToCart({
           productID: product._id,
-          name: product.name,
+          name: product.title,
+          price: product.price,
           discount: product.discount,
           inStock: product.inStock,
           sold: product.sold,
+          img: product.images[0],
           color: tempColor,
           size: tempSize,
-          img: product.images[0],
           quantity: 1
         })
       )
