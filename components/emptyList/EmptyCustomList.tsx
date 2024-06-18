@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import tw from 'twrnc'
 
 const EmptyCustomList = () => {
   return (
-    <View>
-      <Text>数据还没准备好呢</Text>
+    <View style={tw`flex flex-1 bg-white`}>
+      <Text style={tw`text-center pt-[30%]`}>数据还没准备好呢</Text>
     </View>
   )
 }

@@ -122,7 +122,7 @@ const Filter = (props) => {
                 <View style={tw`flex flex-row justify-between items-center gap-1 `}>
                   <Text style={tw`text-base`}>从</Text>
                   <TextInput
-                    style={tw`w-3/4 px-1 text-xl text-left border-b border-gray-200 outline-none`}
+                    style={tw`w-3/4 px-1 text-xl text-left border-b border-gray-200`}
                     keyboardType='number-pad'
                     value={filters.minPrice || 0}
                     onChangeText={value => handleFilter({name: 'minPrice', type: 'input', value})}
@@ -132,7 +132,7 @@ const Filter = (props) => {
                 <View style={tw`flex flex-row justify-between items-center gap-1`}>
                   <Text style={tw`text-base`}>到</Text>
                   <TextInput
-                    style={tw`w-3/4 px-1 text-xl text-left border-b border-gray-200 outline-none`}
+                    style={tw`w-3/4 px-1 text-xl text-left border-b border-gray-200`}
                     keyboardType='number-pad'
                     value={filters.maxPrice || 0}
                     onChangeText={value => handleFilter({ name: 'maxPrice', type: 'input', value })}

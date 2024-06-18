@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, TouchableOpacity  } from 'react-native'
+import { StyleSheet, Text, View, Pressable  } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import React from 'react';
 import Logo from './svgs/logo.svg';

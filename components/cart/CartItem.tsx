@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const CartItem = () => {
-  const {items} = props;
+const CartItem = (props) => {
+
+  const { item } = props;
+  
   return (
     <View>
       <Text>CartItem</Text>

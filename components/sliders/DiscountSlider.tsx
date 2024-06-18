@@ -49,7 +49,7 @@ const DiscountSlider = ({ currentCategory }) => {
 
 const Item = ({content}) => {
   return (
-    <Link href={{ pathname: `/products/${content._id}` }} key={ content._id } asChild>
+    <Link href={{ pathname: `/product/${content._id}` }} key={ content._id } asChild>
       <Pressable style={tw`w-fit h-fit mx-0.5 py-3`}>
         <Image style={tw`w-32 h-32`} source={{ uri: content.images[0].url }} />
         <View style={tw`flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2`}>

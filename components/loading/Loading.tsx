@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated'
 import tw from 'twrnc'
 
-// TODO  loading  一直展示不出来
+// TODO  loading  可以展示出来，不知道为什么这样展示
 export default function Loading(props) {
   //? Props
   const { style } = props

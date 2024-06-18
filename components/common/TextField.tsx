@@ -30,7 +30,7 @@ const TextField = (props) => {
         onBlur={field.onBlur}
         onChangeText={onChangeHandler}
         ref = {field.ref}
-        style={tw`w-full px-3 py-2.5 transition-colors border border-gray-200 rounded-md outline-none bg-zinc-50/30 focus:border-blue-600 leading-none mt-2 ${style}`}
+        style={tw`w-full px-3 py-2.5 transition-colors border border-gray-200 rounded-md bg-zinc-50/30 focus:border-blue-600 leading-none mt-2 ${style}`}
         {...inputProps}
       />
       <DisplayError errors={ errors} />

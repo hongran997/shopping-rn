@@ -8,7 +8,7 @@ const userSlice = createSlice({
     userLogout: (state) => { state.token = '' },
     userLogin: (state, action) => { state.token = action.payload },
     addToLastSeen: (state, action) => {
-      const isItemExist = state.lastSeen.find(item => item.productID === action.payload.productID)
+      const isItemExist = state.lastSeen.find(item => item?.productID === action.payload.productID)
       if (!isItemExist) {
         if (state.lastSeen.length === 15) {
           state.lastSeen.splice(14, 1);

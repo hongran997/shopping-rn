@@ -2,6 +2,7 @@ import apiSlice from './api'
 
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
+    // useGetProductsQuery
     getProducts: builder.query({
       query: ({ category, page_size, page, sort, search, inStock, discount, price }) => {
         return {
@@ -44,14 +45,14 @@ export const productApiSlice = apiSlice.injectEndpoints({
           ]
           : ['Product'],
     }),
-
+    // useGetSingleProductDetailQuery
     getSingleProductDetail: builder.query({
       query: ({ id }) => ({
         url: `/api/products/itemDetail?id=${id}`,
         method: 'GET',
       }),
     }),
-
+    // useGetSingleProductQuery
     getSingleProduct: builder.query({
       query: ({ id }) => ({
         url: `/api/products/${id}`,
@@ -59,7 +60,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: (result, error, arg) => [{ type: 'Product', id: arg.id }],
     }),
-
+    // useDeleteProductMutation
     deleteProduct: builder.mutation({
       query: ({ id }) => ({
         url: `/api/products/${id}`,
@@ -67,7 +68,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Product'],
     }),
-
+    // useCreateProductMutation
     createProduct: builder.mutation({
       query: ({ body }) => ({
         url: `/api/products`,
@@ -76,7 +77,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Product'],
     }),
-
+    // useUpdateProductMutation
     updateProduct: builder.mutation({
       query: ({ id, body }) => ({
         url: `/api/products/${id}`,
@@ -89,10 +90,10 @@ export const productApiSlice = apiSlice.injectEndpoints({
 })
 
 export const {
-  useDeleteProductMutation,
-  useCreateProductMutation,
   useGetProductsQuery,
   useGetSingleProductDetailQuery,
   useGetSingleProductQuery,
+  useDeleteProductMutation,
+  useCreateProductMutation,
   useUpdateProductMutation,
 } = productApiSlice

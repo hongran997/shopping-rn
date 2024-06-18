@@ -5,12 +5,14 @@ import { useAppSelector, useUserInfo } from '@/hooks';
 import { formatNumber } from '@/utils';
 import tw from 'twrnc';
 
-const Cart = () => {
+const Cart = (props) => {
   // getUserInfo
   const { userInfo, mustAuthAction } = useUserInfo();
 
   // store
   const { cartItems, totalItems, totalPrice, totalDiscount } = useAppSelector(state => state.cart);
+
+  console.log(cartItems, 'cartItems')
 
   const handleRoute = () => {
     mustAuthAction(() => {
@@ -41,7 +43,7 @@ const Cart = () => {
                   <View style={tw`divide-y`}>
                     {
                       cartItems.map(item => (
-                        <CartItem item={item} key={item.id}></CartItem>
+                        <CartItem item={item} key={item.itemID}></CartItem>
                       ))
                     }
                   </View>

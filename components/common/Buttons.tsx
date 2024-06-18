@@ -9,7 +9,7 @@ export const Button = (props) => {
   return (
     <Pressable
       disabled={isLoading}
-      style={tw`px-8 py-3 flex items-center outline-none rounded-md active:scale-[.98] bg-red-500 button ${isRounded ? 'rounded-3xl' : ''} ${style}`}
+      style={tw`px-8 py-3 flex items-center rounded-md active:scale-[.98] bg-red-500 button ${isRounded ? 'rounded-3xl' : ''} ${style}`}
       {...restProps}>
       {
         isLoading ? <Loading /> : <Text style={tw`text-white ${style}`}>{ children }</Text>

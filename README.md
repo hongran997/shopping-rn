@@ -110,7 +110,24 @@ password：123456
 6. 还是从小组件开始开发，从内部组件开始开发
 7. 函数的方式难组织，但灵活性更强了
 
+### 无效CSS
+1. outline-none
+2. transition
+3. break-words
+4. [100vw] unknown or invalid utility
+5. vw css unit requires configuration with useDeviceContext()
+6. [58vw] unknown or invalid utility
+7. inline unknown or invalid utility
+8. transition-colors unknown or invalid utility
+9. relative line-height utilities requires that font-size be set
+10. button unknown or invalid utility
+11. Encountered two children with same key.
 
+
+### Core of Persist
+1. 技术对口，招聘需要
+2. 资料清晰且齐全
+3. 可用于上线展示
 
 通过注释代码，替换更为简单的结构来排查问题。
 如果是image不显示，99% 是高度的问题,设置height:100%是没用，因为这种情况一般父组件也是0 

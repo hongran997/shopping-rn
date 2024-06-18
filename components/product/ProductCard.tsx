@@ -17,7 +17,7 @@ const ProductCard = (props) => {
 
   // Renders
   return (
-    <Link href={`/products/${product._id}`}
+    <Link href={`/product/${product._id}`}
       asChild>
       <Pressable style={tw`relative py-2 border-b border-gray-300`}>
         {/* SpecialSell - absolute */}

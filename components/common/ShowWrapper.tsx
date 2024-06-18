@@ -1,68 +1,42 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import EmptyCustomList from '../emptyList/EmptyCustomList';
-import PageLoading from '../loading/PageLoading';
+import Loading from '../loading/Loading';
+import ErrorPage from './ErrorPage';
 import React from 'react'
 
 const ShowWrapper = (props: any) => {
 
-  const { isError, error, refetch, isFetching, dataLength, type = 'list', origialArgs = null,
-    isSuccess, emptyComponent, loadingComponent, children } = props;
-
+  const { isFetching, isSuccess, isError, error, refetch,
+    dataLength, type = 'list', origialArgs = null, children } = props;
+  
 
   return (
     <>
       {
-        isError ? (
-          <View style={styles.container}>
-            {/* Good */}
-            <Text style={styles.warnTitle}>出现异常</Text>
-            <Text style={styles.warnMsg}>{error?.error}</Text>
-            <Pressable style={styles.touchbtn} onPress={refetch}>
-              <Text style={styles.retrybtn}>重试</Text>
-            </Pressable>
-          </View>
-        ) : isFetching ? (type === 'list' && origialArgs && origialArgs?.page > 1) ? (<>{children}</>)
-            : <>{loadingComponent || <PageLoading />}</>   
-        : isSuccess && type == 'list' && dataLength > 0 ? (<>{children}</>) 
-      : (isSuccess && type === 'list') && dataLength === 0 ? <>{emptyComponent || <EmptyCustomList />}</> 
-      : (isSuccess && type === 'detail') ? <>{children}</>
-      : null
+        isError
+          ? <ErrorPage error={error} refetch={refetch} />  // 报错接口
+          : isFetching
+            ? (
+                type === 'list' && origialArgs && origialArgs?.page > 1
+                  ? <>{children}</>  // 如果fetching 第二页的，那就展示第一页的数据呗
+                  : <Loading />  // 如果就是fetch第一页的数据，就显示loading
+              ) 
+            : isSuccess && type == 'list' && dataLength > 0
+              ? <>{children}</>   // 有数据的列表
+              : isSuccess && type === 'list' && dataLength === 0
+                  ? <EmptyCustomList />   // 空列表
+                  : isSuccess && type === 'detail'  
+                    ? <>{children}</>    //  商品详情
+                    : null
       }
+
+
+      {/* Good 单个组件测试 */}
+      {/* <ErrorPage error={error} refetch={refetch} /> */}
+      {/* <Loading />  */}
+      {/* <EmptyCustomList />  */}
     </>
   )
 }
 
 export default ShowWrapper
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    flex: 1
-  },
-  warnTitle: {
-    fontSize: 15,
-    marginBottom: 3,
-    marginLeft: "30%"
-  },
-  warnMsg: {
-    color: 'red',
-    marginBottom: 10,
-    marginLeft: "30%"
-  },
-  touchbtn: {
-    display: "flex",
-    alignItems: "center"
-  },
-  retrybtn: {
-    color: '#fff',
-    backgroundColor: 'red',
-    borderRadius: 5,
-    width: 40,
-    height: 20,
-    fontSize: 13,
-    textAlign: "center",
-    lineHeight: 20,
-  }
-})

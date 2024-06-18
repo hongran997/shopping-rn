@@ -1,5 +1,8 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
-const initialState = { 
+
+import { existItem, getTotal } from '@/utils'
+
+const initialState = {
   cartItems: [],
   totalItems: 0,
   totalPrice: 0,
@@ -7,6 +10,7 @@ const initialState = {
   tempSize: null,
   tempColor: null,
 }
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -14,7 +18,7 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const { color, size, productID } = action.payload
 
-      const isItemExist = exsitItem(state.cartItems, productID, color, size)
+      const isItemExist = existItem(state.cartItems, productID, color, size)
 
       if (isItemExist) {
         isItemExist.quantity += 1
@@ -74,5 +78,14 @@ const cartSlice = createSlice({
   },
 })
 
-export const { addToCart, removeFromCart, increase, decrease, clearCart, setTempColor, setTempSize } = cartSlice.actions
+export const {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  decrease,
+  increase,
+  setTempColor,
+  setTempSize,
+} = cartSlice.actions
+
 export default cartSlice.reducer

@@ -41,7 +41,7 @@ const MostFavouraiteProducts = (props) => {
             : products?.map((product, index) => (
               <Link href={{ pathname: `/products/${product._id}` }} asChild key={product._id}>
                 {/* TODO transition */}
-                <Pressable style={tw`w-[48%] mb-2 p-1 transition border border-gray-200`}>
+                <Pressable style={tw`w-[48%] mb-2 p-1 border border-gray-200`}>
                   {/* rating */}
                   <View style={tw`flex flex-row gap-x-2`}>
                     <Text style={tw`text-base`}>{product.rating.toFixed(1)}</Text>
