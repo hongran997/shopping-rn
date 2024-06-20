@@ -1,12 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
-import { Button } from '../common/Buttons'
 import { useAppSelector } from '@/hooks'
 import { formatNumber } from '@/utils'
 import tw from 'twrnc'
 
 const CartInfo = (props) => {
-
-  const { handleRoute, cart } = props;
 
   const { totalItems, totalPrice, totalDiscount } = useAppSelector(state => state.cart);
 

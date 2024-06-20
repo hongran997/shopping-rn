@@ -47,7 +47,7 @@ const Cart = () => {
                     }
                     </View>
                     <View style={tw`section-divide-y h-2 bg-gray-100`}></View>
-                    <CartInfo handleRoute={handleRoute} cart/>
+                    <CartInfo />
                 </View>
               </ScrollView>
               {/* go skiping  */}

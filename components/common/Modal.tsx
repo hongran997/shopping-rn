@@ -7,6 +7,7 @@ import Icons from './Icons';
 const Modal = (props) => {
 
   // Props
+  // TODO effect 是什么意思？
   const { isShow, onClose, closeOnClickOverlay, modalStyles, effect, children, ...restProps } = props;
 
 
@@ -67,7 +68,7 @@ const Header = (props) => {
     <View style={tw`flex flex-row items-center justify-between pb-2 border-b-2 border-gray-200 mb-2`}>
       <Text style={tw`text-sm`}>{children}</Text>
       <Pressable onPress={onClose} style={tw`p-1`}>
-        <Icons.AntDesign name="close" size={16} className="icon" />
+        <Icons.AntDesign name="close" size={16} style={tw`icon`} />
       </Pressable>
     </View>
   )

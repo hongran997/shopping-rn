@@ -17,6 +17,16 @@ export const reviewSchema = Yup.object().shape({
   comment: Yup.string().required('评论蚊子不能为空').min(4, '评论文字不得少于4个字符'),
 })
 
-export const addressScheme = Yup.object().shape({
-  
+export const addressSchema = Yup.object().shape({
+  province: Yup.object().shape({
+    name: Yup.string().required('请选择您居住的省份'),
+  }),
+  city: Yup.object().shape({
+    name: Yup.string().required('请选择您的居住的城市'),
+  }),
+  area: Yup.object().shape({
+    name: Yup.string().required('请选择您的居住的区县'),
+  }),
+  street: Yup.string().required('街道名称不能为空'),
+  postalCode: Yup.string().required('请输入您的邮政编码'),
 })

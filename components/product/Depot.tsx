@@ -11,7 +11,7 @@ const Depot = (props) => {
     return (<Text> 库存仅剩{ formatNumber(inStock) } </Text>)
   } else if (inStock > 10) {
     <View style={tw`flex flex-row items-center text-teal-500 gap-x-1` }>
-      <Icons.FontAwesome name="save" size={16} className="text-teal-500" />
+      <Icons.FontAwesome name="save" size={16} style={tw`text-teal-500`} />
       <Text style={tw`text-teal-700`}>仓库有售</Text>
     </View>
   } else if (inStock == 0) {

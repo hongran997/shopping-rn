@@ -11,9 +11,7 @@ export const Button = (props) => {
       disabled={isLoading}
       style={tw`px-8 py-3 flex items-center rounded-md active:scale-[.98] bg-red-500 button ${isRounded ? 'rounded-3xl' : ''} ${style}`}
       {...restProps}>
-      {
-        isLoading ? <Loading /> : <Text style={tw`text-white ${style}`}>{ children }</Text>
-      }
+      <Text style={tw`w-full text-white text-center`}>{ children }</Text>
     </Pressable>
   )
 }
@@ -26,7 +24,7 @@ export const LoginBtn = ({children, ...restProps}) => {
   )
 }
 
-export const SubmitBtn = ({children, ...restProps}) => {
+export const SubmitModalBtn = ({children, ...restProps}) => {
   return (
     <Button style={tw`w-full max-w-xl mx-auto rounded-md btn lg:w-64 lg:ml-0`} {...restProps}>
       {children}

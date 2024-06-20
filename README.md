@@ -122,6 +122,7 @@ password：123456
 9. relative line-height utilities requires that font-size be set
 10. button unknown or invalid utility
 11. Encountered two children with same key.
+12. 怎么payment 提交之后，弹窗就关闭了呢.
 
 
 ### Core of Persist

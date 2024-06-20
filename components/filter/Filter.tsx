@@ -84,7 +84,7 @@ const Filter = (props) => {
     <>
       <View style={tw`pr-3`}>
         <Pressable style={tw`flex flex-row items-center gap-x-1`} onPress={filtersHandlers.open}>
-          <Icons.Ionicons name="filter" size={16} className="text-neutral-600" />
+          <Icons.Ionicons name="filter" size={16} style={tw`text-neutral-600`} />
           <Text style={tw`text-base text-neutral-600`}>筛选</Text>
         </Pressable>
       </View>
