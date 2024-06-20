@@ -22,7 +22,7 @@ const Profile = () => {
       name: '我的收藏',
       Icon: Icons.Feather,
       IconName: 'heart',
-      path: '/profile/lists'
+      path: '/profile/collections'
     },
     {
       name: '我的评价',
