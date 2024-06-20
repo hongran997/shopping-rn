@@ -30,3 +30,14 @@ export const addressSchema = Yup.object().shape({
   street: Yup.string().required('街道名称不能为空'),
   postalCode: Yup.string().required('请输入您的邮政编码'),
 })
+
+export const mobileSchema = Yup.object().shape({
+  mobile: Yup.string()
+    .required('手机号码必须注册')
+    .min(11, '手机号码必须为 11 位数字')
+    .max(11, '手机号码必须为 11 位数字'),
+})
+
+export const nameSchema = Yup.object().shape({
+  name: Yup.string().required('必须登记姓名').min(3, '名字必须超过 3 个字符'),
+})
