@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import { useLocalSearchParams, Link, useRouter, Stack } from 'expo-router'
+import { useLocalSearchParams, useRouter, Stack } from 'expo-router'
 import {
   ProductHeader, InitialStore, ImageGallery, Description, FreeShipping, Info, OutOfStock, SelectColor,
   SelectSize, ShowWrapper, AddToCartOperation, SmilarProductsSlider, Specification, Reviews } from '../../../components'
 import { useAppSelector } from '@/hooks'
-import { formatNumber } from '@/utils'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useGetSingleProductDetailQuery } from '@/services'
 import tw from 'twrnc';
@@ -15,7 +14,6 @@ const SingleProductScreen = () => {
   const { id } = useLocalSearchParams();
 
   // Assets
-  const router = useRouter();
   const insets = useSafeAreaInsets();
   const { totalItems } = useAppSelector(state => state.cart);
 
@@ -97,7 +95,7 @@ const SingleProductScreen = () => {
               <View style={tw`section-divide-y h-2 bg-gray-100`}></View>
               {/* Review */}
               <Reviews numReviews={product.numReviews}
-                prodouctID={product._id}
+                productID={product._id}
                 productTitle={product.title} />
             </View>
           </ScrollView>

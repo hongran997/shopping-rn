@@ -9,19 +9,19 @@ import ReviewProductCard from './ReviewProductCard'
 
 const Reviews = (props) => {
 
-  const { numReviews, prodouctID, productTitle } = props;
+  const { productID, productTitle, numReviews } = props;
   const { mustAuthAction } = useUserInfo();
   const router = useRouter();
 
   const handleOpenComment = () => {
     mustAuthAction(() => {
-      router.push({ pathname: '/review/comment', params: { prodouctID, productTitle, numReviews }})
+      router.push({ pathname: '/review/comment', params: { productID, productTitle, numReviews }})
     })
   }
 
   // api: get Product-Reviews Query
   const { isSuccess, isFetching, isError, error, data, refetch } = useGetProductReviewsQuery({
-    id: prodouctID,
+    id: productID,
     page: 1,
   }, {
     skip: !(numReviews > 0)

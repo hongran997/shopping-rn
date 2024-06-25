@@ -71,7 +71,7 @@ const ReviewCard = (props) => {
             <Text>{item.comment}</Text>
             <View>
               {item.positivePoints.map(point => (
-                <View style="flex flex-row items-center gap-x-1" key={point.id}>
+                <View style={tw`flex flex-row items-center gap-x-1`} key={point.id}>
                   <Icons.AntDesign name="plus" size={20} style={tw`text-green-400 icon`} />
                   <Text>{point.title}</Text>
                 </View>
