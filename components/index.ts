@@ -34,7 +34,7 @@ export { default as EmptyCustomList } from './emptyList/EmptyCustomList'
 // export { default as EmptyComment } from './emptyList/EmptyComment'
 // export { default as EmptyOrdersList } from './emptyList/EmptyOrdersList'
 // export { default as EmptyCommentsList } from './emptyList/EmptyCommentsList'
-// export { default as EmptySearchList } from './emptyList/EmptySearchList'
+export { default as EmptySearchList } from './emptyList/EmptySearchList'
 
 //* SLIDER COMPONENTS
 export { default as Slider } from './sliders/Slider'

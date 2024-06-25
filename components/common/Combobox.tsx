@@ -14,8 +14,6 @@ const Combobox = props => {
   //? Handlers
   const filteredList = list.map(item => ({ ...item, label: item.name, value: item.code }))
 
-  console.log(list, 'zhr list');
-
   const onChangeHandler = value => {
     field.onChange(filteredList.find(item => item.value === value))
   }
