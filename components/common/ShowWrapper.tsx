@@ -7,7 +7,8 @@ import React from 'react'
 const ShowWrapper = (props: any) => {
 
   const { isFetching, isSuccess, isError, error, refetch,
-    dataLength, type = 'list', origialArgs = null, children } = props;
+    dataLength, type = 'list', origialArgs = null, children,
+    loadingComponent, emptyComponent } = props;
   
 
   return (
@@ -19,12 +20,12 @@ const ShowWrapper = (props: any) => {
             ? (
                 type === 'list' && origialArgs && origialArgs?.page > 1
                   ? <>{children}</>  // 如果fetching 第二页的，那就展示第一页的数据呗
-                  : <Loading />  // 如果就是fetch第一页的数据，就显示loading
+                  : loadingComponent || <Loading />  // 如果就是fetch第一页的数据，就显示loading
               ) 
             : isSuccess && type == 'list' && dataLength > 0
               ? <>{children}</>   // 有数据的列表
               : isSuccess && type === 'list' && dataLength === 0
-                  ? <EmptyCustomList />   // 空列表
+                  ? emptyComponent || <EmptyCustomList />   // 空列表
                   : isSuccess && type === 'detail'  
                     ? <>{children}</>    //  商品详情
                     : null

@@ -4,12 +4,13 @@ import Icons  from './common/Icons';
 import tw from 'twrnc';
 
 const Search = () => {
+  
   const handleSearch = () => {
     router.push('/search');
   }
 
   return (
-    <Pressable onPress={() => handleSearch}
+    <Pressable onPress={handleSearch}
       style={tw`flex flex-row rounded-md bg-zinc-100/80 justify-between items-center p-1`}>
       <Text style={tw`flex-grow py-1 px-3 text-left bg-transparent cursor-pointer text-gray-400 focus:border-none`}>
         善假于物，用好搜索...
