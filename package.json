@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "node proxy.js && expo start",
+    "start": "concurrently \"node proxy.js\" \"expo start\"",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -55,6 +55,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/react": "~18.2.45",
+    "concurrently": "^8.2.2",
     "eslint": "^9.2.0",
     "eslint-config-universe": "^12.1.0",
     "husky": "^9.0.11",
