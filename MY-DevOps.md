@@ -135,3 +135,13 @@ password：123456
 map(item => {(jsx)})  item 后面的{} 不要加，加了jsx 就显示不出来了，直接用() 就可以了。
 jsx 里面也可以写 if 哈，写了这个之后，jsx 要加大括号和return
 aspect-square  设置了宽高1:1， 当设置了宽度的时候，就相当于设置了高度了
+
+
+### CORS
+1. 不管是routes， redirects， rewrites， 后两个更新origin, 会返回页面， 第一个线上版本虽然重定向了，但是重定向之后仍然存在跨域问题
+2. 不管是routes 里的headers , 还是外面的header, 只会修改当前host下的。
+3. 调用localhost:8081/api/feed, 后面转发的时候会有跨域问题，而且无法修改header
+4. 调用https://c-shopping-three.vercel.app/api/feed，设置了headers不管用,且也无法修改origin， referer
+5. serverless function
+6. 为什么访问serverless 函数返回的都是404呢？ 
+7. serverless 函数如何写？怎么触发？怎么让他继续执行？
