@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type {RootState} from '../store'
+import type { RootState } from '../store'
+console.log(process.env.EXPO_PUBLIC_BASE_URL,'111111111111111111111111111');
 const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery(
