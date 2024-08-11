@@ -4,18 +4,14 @@ const morgan = require('morgan');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:8081', // 允许来自localhost:8081的请求
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(morgan('combined'));
 
 app.use(
   '/api',
   createProxyMiddleware({
-    target: 'http://shop.huanghanlian.com/api',
+    target: 'https://shop.huanghanlian.com/api',
     changeOrigin: true,
     onProxyRes(proxyRes, req, res) {
       console.log(req, res);

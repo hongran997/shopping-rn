@@ -68,10 +68,5 @@
     "typescript": "~5.3.3",
     "yup": "^1.4.0"
   },
-  "overrides": {
-    "@vercel/node": {
-      "undici": "5.27.1"
-    }
-  },
   "private": true
 }
