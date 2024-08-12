@@ -51,7 +51,7 @@ const Item = ({content}) => {
   return (
     <Link href={{ pathname: `/product/${content._id}` }} key={ content._id } asChild>
       <Pressable style={tw`w-fit h-fit mx-0.5 py-3`}>
-        <Image style={tw`w-32 h-32`} source={{ uri: content.images[0].url }} />
+        <Image style={tw`w-32 h-32`} source={{ uri: content.images[0]?.url }} />
         <View style={tw`flex flex-row px-2 mt-1.5 justify-evenly items-start gap-x-2`}>
           <DiscountProduct discount={content.discount}></DiscountProduct>
           <ProductPrice inStock={content.inStock} discount={content.discount} price={content.price} />
